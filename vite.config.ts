@@ -2,8 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-import { cloudflare } from "@cloudflare/vite-plugin";
-
 const ARCGIS_REFERER = "https://experience.arcgis.com";
 
 const UTILITY_SERVICE_IDS = [
@@ -16,7 +14,7 @@ const UTILITY_SERVICE_IDS = [
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), cloudflare()],
+  plugins: [react(), tailwindcss()],
   server: {
     proxy: {
       // ── utility.arcgis.com (per-service proxy rules) ──────────────────────
