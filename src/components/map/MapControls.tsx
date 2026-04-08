@@ -4,7 +4,7 @@
 
 import type { FC, MutableRefObject } from "react";
 import type { Map } from "leaflet";
-import { Plus, Minus, Layers, Sun, Moon, RotateCcw } from "lucide-react";
+import {Plus, Minus, Layers, Sun, Moon, RotateCcw, Github} from "lucide-react";
 import type { Theme } from "../../types";
 import { DEFAULT_CENTER, DEFAULT_ZOOM } from "../../config/map.config";
 
@@ -66,6 +66,15 @@ const MapControls: FC<Props> = ({
                 title="Reset view"
             >
                 <RotateCcw size={15} />
+            </button>
+
+            <button
+                className="map-icon-btn"
+                onClick={() => window.open('https://github.com/aburafudon/aa-parcel-map', "_blank", "noreferrer")}
+                aria-label="Go to the GitHub repository of this project"
+                title="GitHub Repo"
+            >
+                <Github size={15} />
             </button>
         </div>
 
