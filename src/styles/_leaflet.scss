@@ -1,0 +1,48 @@
+// =============================================================================
+// styles/_leaflet.scss — Leaflet map overrides
+// =============================================================================
+
+.leaflet-container {
+    font-family: var(--font);
+}
+
+// Attribution pill
+.leaflet-control-attribution {
+    background:      var(--surface-glass) !important;
+    color:           var(--text-muted) !important;
+    font-size:       9px !important;
+    border-radius:   8px 0 0 0 !important;
+    padding:         3px 8px !important;
+    backdrop-filter: blur(10px);
+
+    a { color: var(--text-muted) !important; }
+}
+
+// Parcel hover tooltip
+.gis-tooltip {
+    background:      var(--tooltip-bg) !important;
+    border:          1px solid var(--border-strong) !important;
+    border-radius:   var(--radius-sm) !important;
+    color:           var(--text-primary) !important;
+    font-family:     var(--font) !important;
+    font-size:       11px !important;
+    font-weight:     600 !important;
+    padding:         5px 10px !important;
+    backdrop-filter: blur(12px);
+    box-shadow:      0 4px 16px rgba(0, 0, 0, 0.4) !important;
+    white-space:     nowrap;
+
+    &::before { display: none !important; }
+}
+
+// Light mode overrides
+[data-theme="light"] {
+    .leaflet-container { background: #e8edf2; }
+
+    .leaflet-control-attribution {
+        background: rgba(255, 255, 255, 0.88) !important;
+        color:      #64748b !important;
+
+        a { color: #64748b !important; }
+    }
+}

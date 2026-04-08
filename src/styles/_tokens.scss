@@ -1,0 +1,41 @@
+// =============================================================================
+// styles/_tokens.scss — design tokens (CSS custom properties)
+// =============================================================================
+
+@use "sass:color";
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --accent:          #f97316;
+    --accent-dark:     #ea580c;
+    --accent-glow:     rgba(249, 115, 22, 0.30);
+    --accent-subtle:   rgba(249, 115, 22, 0.13);
+
+    --surface-glass:   rgba(13, 13, 20, 0.92);
+    --surface-raised:  rgba(255, 255, 255, 0.055);
+    --surface-hover:   rgba(255, 255, 255, 0.09);
+
+    --border:          rgba(255, 255, 255, 0.09);
+    --border-strong:   rgba(255, 255, 255, 0.14);
+
+    --text-primary:    #f1f5f9;
+    --text-secondary:  #94a3b8;
+    --text-muted:      #475569;
+
+    --radius-sm:  10px;
+    --radius-md:  14px;
+    --radius-lg:  20px;
+
+    --sidebar-w:  370px;
+    --font:       'Public Sans', sans-serif;
+
+    // Leaflet tooltip
+    --tooltip-bg: rgba(13, 13, 20, 0.90);
+
+    // Parcel placeholder
+    --placeholder-bg:    rgba(30, 30, 40, 0.6);
+    --placeholder-grid:  rgba(255, 255, 255, 0.06);
+    --placeholder-road:  rgba(255, 255, 255, 0.12);
+    --placeholder-block: rgba(255, 255, 255, 0.04);
+}

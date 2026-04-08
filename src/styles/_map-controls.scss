@@ -1,0 +1,101 @@
+// =============================================================================
+// styles/_map-controls.scss — zoom cluster, icon buttons, coordinates bar
+// =============================================================================
+
+// ─── Map control column ────────────────────────────────────────────────────────
+.map-controls {
+    position:        absolute;
+    bottom:          24px;
+    right:           24px;
+    z-index:         20;
+    display:         flex;
+    flex-direction:  column;
+    gap:             10px;
+}
+
+// ─── Zoom cluster ──────────────────────────────────────────────────────────────
+.zoom-cluster {
+    display:         flex;
+    flex-direction:  column;
+    border-radius:   var(--radius-sm);
+    overflow:        hidden;
+    border:          1px solid var(--border-strong);
+    background:      var(--surface-glass);
+    backdrop-filter: blur(16px);
+}
+
+.zoom-btn {
+    padding:    11px 15px;
+    color:      var(--text-primary);
+    font-size:  19px;
+    line-height: 1;
+    transition: background 0.12s;
+
+    &:hover      { background: var(--surface-hover); }
+    &--top       { border-bottom: 1px solid var(--border); }
+}
+
+// ─── Icon buttons ──────────────────────────────────────────────────────────────
+.map-icon-btn {
+    padding:         11px 15px;
+    background:      var(--surface-glass);
+    border:          1px solid var(--border-strong);
+    border-radius:   var(--radius-sm);
+    color:           var(--text-primary);
+    font-size:       15px;
+    backdrop-filter: blur(16px);
+    transition:      background 0.12s, color 0.12s;
+
+    &:hover    { background: var(--surface-hover); color: var(--accent); }
+    &--active  {
+        background:   var(--accent-subtle) !important;
+        color:        var(--accent) !important;
+        border-color: var(--accent) !important;
+    }
+}
+
+.theme-toggle {
+    display:     flex;
+    align-items: center;
+    justify-content: center;
+    font-size:   15px;
+    line-height: 1;
+}
+
+// ─── Coordinates bar ───────────────────────────────────────────────────────────
+.coords-bar {
+    position:        absolute;
+    bottom:          24px;
+    left:            calc(var(--sidebar-w) + 32px);
+    z-index:         20;
+    display:         flex;
+    align-items:     center;
+    gap:             14px;
+    padding:         7px 16px;
+    border-radius:   999px;
+    background:      var(--surface-glass);
+    border:          1px solid var(--border);
+    backdrop-filter: blur(14px);
+    color:           var(--text-secondary);
+    font-family:     monospace;
+    font-size:       10px;
+    font-weight:     700;
+    letter-spacing:  0.05em;
+    white-space:     nowrap;
+}
+
+.coords-scale {
+    display:     flex;
+    align-items: center;
+    gap:         7px;
+}
+
+.coords-scale-line {
+    display:    inline-block;
+    width:      22px;
+    height:     1px;
+    background: var(--text-secondary);
+}
+
+.coords-sep  { color: var(--text-muted); }
+.coords-zoom { color: var(--accent); }

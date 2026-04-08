@@ -1,0 +1,178 @@
+// =============================================================================
+// styles/_property-detail.scss — PropertyDetail component
+// =============================================================================
+
+// ─── Panel layout ─────────────────────────────────────────────────────────────
+.detail-panel {
+    flex:       1;
+    display:    flex;
+    flex-direction: column;
+    overflow:   hidden;
+    min-height: 0;
+}
+
+.detail-scroll {
+    flex:       1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+}
+
+// ─── Property header ──────────────────────────────────────────────────────────
+.property-header {
+    padding:       18px 18px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.property-title-row {
+    display:         flex;
+    align-items:     flex-start;
+    justify-content: space-between;
+    gap:             10px;
+}
+
+.property-title-text {
+    flex:           1;
+    min-width:      0;
+    display:        flex;
+    flex-direction: column;
+    gap:            3px;
+}
+
+.property-address-row {
+    display:     flex;
+    align-items: center;
+    gap:         6px;
+    flex-wrap:   nowrap;
+    min-width:   0;
+
+    .property-address { min-width: 0; }
+}
+
+.property-address {
+    font-size:      18px;
+    font-weight:    800;
+    letter-spacing: -0.025em;
+    color:          var(--text-primary);
+    line-height:    1.2;
+    min-height:     22px;
+}
+
+.property-status {
+    font-size:      10px;
+    font-weight:    700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color:          var(--accent);
+    margin-top:     5px;
+}
+
+.property-city {
+    font-size:  11px;
+    color:      var(--text-secondary);
+    margin-top: 2px;
+}
+
+// ─── Save / heart button ──────────────────────────────────────────────────────
+.save-btn {
+    font-size:   20px;
+    color:       var(--text-muted);
+    flex-shrink: 0;
+    padding:     2px 4px;
+    line-height: 1;
+    transition:  color 0.15s, transform 0.12s;
+
+    &:hover   { color: var(--accent); transform: scale(1.18); }
+    &--saved  { color: var(--accent); }
+}
+
+// ─── Status badge ─────────────────────────────────────────────────────────────
+.propstatus-badge {
+    display:        inline-flex;
+    align-items:    center;
+    gap:            5px;
+    font-size:      10px;
+    font-weight:    700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius:  5px;
+    padding:        2px 7px 2px 6px;
+    width:          fit-content;
+
+    &--active   { color: #34d399; background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.25); }
+    &--inactive { color: #94a3b8; background: rgba(148, 163, 184, 0.10); border: 1px solid rgba(148, 163, 184, 0.20); }
+}
+
+.propstatus-dot {
+    width:         6px;
+    height:        6px;
+    border-radius: 50%;
+    flex-shrink:   0;
+    background:    currentColor;
+}
+
+// ─── Exempt chip ──────────────────────────────────────────────────────────────
+.exempt-chip {
+    display:        inline-flex;
+    align-items:    center;
+    flex-shrink:    0;
+    font-size:      9px;
+    font-weight:    800;
+    letter-spacing: 0.1em;
+    color:          #fbbf24;
+    background:     rgba(251, 191, 36, 0.15);
+    border:         1px solid rgba(251, 191, 36, 0.35);
+    border-radius:  4px;
+    padding:        2px 5px;
+    line-height:    1;
+    white-space:    nowrap;
+}
+
+// ─── Sticky footer ────────────────────────────────────────────────────────────
+.detail-footer {
+    flex-shrink:          0;
+    display:              flex;
+    gap:                  8px;
+    padding:              10px 14px 14px;
+    border-top:           1px solid var(--border);
+    background:           var(--surface-glass);
+    backdrop-filter:      blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.footer-btn {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             7px;
+    padding:         9px 0;
+    border-radius:   var(--radius-sm);
+    font-size:       12px;
+    font-weight:     700;
+    font-family:     var(--font);
+    cursor:          pointer;
+    text-decoration: none;
+    transition:      background 0.14s, color 0.14s, border-color 0.14s;
+    white-space:     nowrap;
+    border:          1px solid transparent;
+
+    &--primary {
+        flex:         1;
+        background:   var(--accent-subtle);
+        color:        var(--accent);
+        border-color: rgba(249, 115, 22, 0.35);
+
+        &:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    }
+
+    &--secondary {
+        flex:         0 0 auto;
+        padding-left:  14px;
+        padding-right: 14px;
+        background:    var(--surface-raised);
+        color:         var(--text-muted);
+        border-color:  var(--border-strong);
+
+        &:hover { background: var(--surface-hover); color: var(--text-secondary); }
+    }
+}

@@ -1,0 +1,89 @@
+// =============================================================================
+// styles/_confirm-dialog.scss — DeleteConfirmDialog component
+// =============================================================================
+
+.confirm-overlay {
+    position:        absolute;
+    inset:           0;
+    z-index:         50;
+    background:      rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    padding:         24px;
+    border-radius:   var(--radius-lg);
+}
+
+.confirm-dialog {
+    background:      var(--surface-glass);
+    border:          1px solid var(--border-strong);
+    border-radius:   var(--radius-md);
+    padding:         24px 20px 20px;
+    text-align:      center;
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    gap:             10px;
+    width:           100%;
+    max-width:       280px;
+    backdrop-filter: blur(20px);
+    box-shadow:      0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.confirm-icon {
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    width:           44px;
+    height:          44px;
+    border-radius:   50%;
+    background:      rgba(251, 191, 36, 0.15);
+    color:           #fbbf24;
+    margin-bottom:   2px;
+}
+
+.confirm-title {
+    font-size:   15px;
+    font-weight: 700;
+    color:       var(--text-primary);
+}
+
+.confirm-body {
+    font-size:   12px;
+    color:       var(--text-secondary);
+    line-height: 1.5;
+}
+
+.confirm-actions {
+    display:    flex;
+    gap:        8px;
+    margin-top: 4px;
+    width:      100%;
+}
+
+.confirm-cancel,
+.confirm-delete {
+    flex:        1;
+    padding:     9px 0;
+    border-radius: var(--radius-sm);
+    font-size:   13px;
+    font-weight: 600;
+    cursor:      pointer;
+    font-family: var(--font);
+    transition:  background 0.12s, opacity 0.12s;
+    border:      1px solid var(--border-strong);
+}
+
+.confirm-cancel {
+    background: var(--surface-raised);
+    color:      var(--text-primary);
+    &:hover { background: var(--surface-hover); }
+}
+
+.confirm-delete {
+    background:   rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color:        #f87171;
+    &:hover { background: rgba(239, 68, 68, 0.25); }
+}

@@ -1,0 +1,27 @@
+// =============================================================================
+// styles/_reset.scss — box-model reset and element defaults
+// =============================================================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin:  0;
+    padding: 0;
+}
+
+html,
+body,
+#root {
+    transition: background 0.25s, color 0.25s;
+    height:   100%;
+    width:    100%;
+    overflow: hidden;
+    font-family: var(--font);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+input  { font-family: var(--font); }
+a      { color: var(--accent); }

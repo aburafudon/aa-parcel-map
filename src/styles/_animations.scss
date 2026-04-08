@@ -1,0 +1,190 @@
+// =============================================================================
+// styles/_animations.scss — motion design tokens and component animations
+//
+// Accessibility: all animations respect prefers-reduced-motion.
+// =============================================================================
+
+// ─── Motion tokens ────────────────────────────────────────────────────────────
+:root {
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+// ─── Heart / save button ──────────────────────────────────────────────────────
+// Plays on the frame the saved state changes to true
+
+@keyframes heart-pop {
+    0%   { transform: scale(1);    }
+    30%  { transform: scale(1.45); }
+    55%  { transform: scale(0.88); }
+    75%  { transform: scale(1.18); }
+    100% { transform: scale(1);    }
+}
+
+@keyframes heart-burst {
+    0%   { opacity: 1; transform: scale(0);   }
+    60%  { opacity: 0.6; transform: scale(1.8); }
+    100% { opacity: 0; transform: scale(2.2);   }
+}
+
+.save-btn {
+    position: relative;
+
+    &.save-btn--just-saved {
+        animation: heart-pop 0.45s var(--ease-spring) both;
+    }
+}
+
+// ─── Accordion body — smooth height reveal ─────────────────────────────────--
+// We animate via a wrapper so the grid layout isn't disrupted.
+
+@keyframes accordion-open {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-body {
+    animation: accordion-open 0.2s var(--ease-out) both;
+}
+
+// ─── Sidebar tab indicator ────────────────────────────────────────────────────
+
+.sidebar-tab--active {
+    transition: color 0.15s, border-color 0.2s var(--ease-out);
+}
+
+// ─── Search results panel slide-in ────────────────────────────────────────────
+
+@keyframes results-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.results-panel {
+    animation: results-in 0.15s var(--ease-out) both;
+}
+
+// ─── Result card hover lift ───────────────────────────────────────────────────
+
+.result-card {
+    transition: background 0.12s, transform 0.1s var(--ease-out), box-shadow 0.1s;
+
+    &:hover, &--active {
+        transform:  translateX(2px);
+        box-shadow: -3px 0 0 0 var(--accent);
+    }
+}
+
+// ─── Property detail panel slide-in ──────────────────────────────────────────
+
+@keyframes detail-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.detail-panel {
+    animation: detail-in 0.22s var(--ease-out) both;
+}
+
+// ─── Quick stat card hover glow ───────────────────────────────────────────────
+
+.qs-card {
+    transition: background 0.15s, transform 0.12s var(--ease-spring), box-shadow 0.15s;
+
+    &:hover {
+        transform:  translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// ─── Layer panel entry ────────────────────────────────────────────────────────
+
+@keyframes layer-panel-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+
+// ─── Favorites card hover pop ─────────────────────────────────────────────────
+
+.fav-card {
+    transition: background 0.12s, transform 0.12s var(--ease-out);
+
+    &:hover { transform: translateX(2px); }
+}
+
+// ─── Loading hint pulse ───────────────────────────────────────────────────────
+
+@keyframes loading-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.55; }
+}
+
+.loading-hint {
+    animation: loading-pulse 1.4s ease-in-out infinite;
+}
+
+// ─── Map icon button active press ─────────────────────────────────────────────
+
+.map-icon-btn,
+.zoom-btn {
+    transition: background 0.12s, color 0.12s, transform 0.08s;
+
+    &:active { transform: scale(0.92); }
+}
+
+// ─── Sidebar glass panel open ─────────────────────────────────────────────────
+
+@keyframes sidebar-in {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.sidebar {
+    animation: sidebar-in 0.3s var(--ease-out) both;
+}
+
+// ─── Confirm dialog ───────────────────────────────────────────────────────────
+
+@keyframes confirm-in {
+    from { opacity: 0; transform: scale(0.88); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.confirm-dialog {
+    animation: confirm-in 0.2s var(--ease-spring) both;
+}
+
+// ─── Coords bar slide up ──────────────────────────────────────────────────────
+
+@keyframes coords-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.coords-bar {
+    animation: coords-in 0.35s var(--ease-out) 0.2s both;
+}
+
+// ─── Tab badge pop-in ─────────────────────────────────────────────────────────
+
+@keyframes badge-in {
+    from { opacity: 0; transform: scale(0.5); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.tab-badge {
+    animation: badge-in 0.2s var(--ease-spring) both;
+}
+
+// ─── Accessibility: disable non-essential animations ─────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration:   0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration:  0.001ms !important;
+    }
+}

@@ -1,0 +1,65 @@
+// =============================================================================
+// styles/_parcel-thumbnail.scss — ParcelThumbnail component
+// =============================================================================
+
+.parcel-thumb-wrap {
+    position:      relative;
+    margin-bottom: 14px;
+}
+
+.parcel-placeholder {
+    width:         100%;
+    height:        130px;
+    border-radius: var(--radius-md);
+    overflow:      hidden;
+    line-height:   0;
+    background:    var(--placeholder-bg);
+}
+
+.placeholder-svg {
+    width:         100%;
+    height:        130px;
+    display:       block;
+    border-radius: var(--radius-md);
+}
+
+// deprecated overlay (hidden)
+.placeholder-addr { display: none; }
+
+// ─── Satellite image ──────────────────────────────────────────────────────────
+.parcel-sat-img {
+    width:         100%;
+    height:        130px;
+    object-fit:    cover;
+    border-radius: var(--radius-md);
+    display:       block;
+}
+
+// ─── Street View button ───────────────────────────────────────────────────────
+.streetview-btn {
+    position:        absolute;
+    top:             8px;
+    right:           8px;
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    width:           32px;
+    height:          32px;
+    border-radius:   50%;
+    background:      var(--surface-glass);
+    border:          1px solid var(--border-strong);
+    backdrop-filter: blur(10px);
+    color:           var(--text-primary);
+    text-decoration: none;
+    transition:      background 0.12s, color 0.12s, border-color 0.12s;
+    font-family:     var(--font);
+
+    &:hover {
+        background:   var(--accent-subtle);
+        color:        var(--accent);
+        border-color: var(--accent);
+    }
+}
+
+// deprecated full-text variant (hidden)
+.streetview-wrap { display: none; }

@@ -1,0 +1,141 @@
+// =============================================================================
+// styles/_search.scss — sidebar search bar and search dropdown
+// =============================================================================
+
+// ─── Search bar ────────────────────────────────────────────────────────────────
+.sidebar-search {
+    position:      relative;
+    padding:       14px 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink:   0;
+}
+
+.sidebar-search-icon {
+    position:       absolute;
+    left:           26px;
+    top:            50%;
+    transform:      translateY(-50%);
+    color:          var(--text-secondary);
+    pointer-events: none;
+
+    // Vertically centred using flex (Lucide icons)
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.sidebar-search-input {
+    width:         100%;
+    padding:       9px 14px 9px 34px;
+    border-radius: var(--radius-sm);
+    border:        1px solid var(--border-strong);
+    background:    var(--surface-raised);
+    color:         var(--text-primary);
+    font-size:     13px;
+    outline:       none;
+    transition:    border-color 0.15s, background 0.15s;
+
+    &::placeholder { color: var(--text-muted); }
+    &:focus        { border-color: var(--accent); background: var(--surface-hover); }
+    &:disabled     { opacity: 0.5; }
+}
+
+.sidebar-search-clear {
+    position:        absolute;
+    right:           26px;
+    top:             50%;
+    transform:       translateY(-50%);
+    color:           var(--text-muted);
+    font-size:       11px;
+    width:           18px;
+    height:          18px;
+    border-radius:   50%;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    transition:      background 0.12s, color 0.12s;
+
+    &:hover { background: var(--surface-hover); color: var(--text-primary); }
+}
+
+// Nudge input right to not overlap clear button
+.sidebar-search:has(.sidebar-search-clear) .sidebar-search-input {
+    padding-right: 36px;
+}
+
+.search-error {
+    font-size:   11px;
+    color:       #f87171;
+    margin-top:  6px;
+    padding-left: 4px;
+}
+
+// ─── Legacy autocomplete dropdown (kept for fallback compatibility) ────────────
+.search-dropdown {
+    position:         absolute;
+    top:              calc(100% - 2px);
+    left:             0;
+    right:            0;
+    z-index:          100;
+    list-style:       none;
+    margin:           0;
+    padding:          4px 0;
+    background:       rgba(18, 18, 26, 0.98);
+    border:           1px solid var(--border-strong);
+    border-top:       none;
+    border-radius:    0 0 var(--radius-md) var(--radius-md);
+    backdrop-filter:  blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:       0 16px 40px rgba(0, 0, 0, 0.55);
+    overflow:         hidden;
+    animation:        dropdown-in 0.12s ease;
+}
+
+@keyframes dropdown-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.search-dropdown-item {
+    display:       flex;
+    flex-direction: column;
+    gap:           2px;
+    padding:       10px 16px;
+    cursor:        pointer;
+    transition:    background 0.1s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+    &:last-child { border-bottom: none; }
+
+    &:hover,
+    &--active { background: var(--accent-subtle); }
+}
+
+.search-dropdown-addr {
+    font-size:     13px;
+    font-weight:   600;
+    color:         var(--text-primary);
+    white-space:   nowrap;
+    overflow:      hidden;
+    text-overflow: ellipsis;
+}
+
+.search-dropdown-item--active .search-dropdown-addr,
+.search-dropdown-item:hover   .search-dropdown-addr {
+    color: var(--accent);
+}
+
+.search-dropdown-meta {
+    font-size:     11px;
+    color:         var(--text-secondary);
+    white-space:   nowrap;
+    overflow:      hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-search:has(.search-dropdown) .sidebar-search-input {
+    border-radius:      var(--radius-sm) var(--radius-sm) 0 0;
+    border-bottom-color: transparent;
+}

@@ -1,0 +1,39 @@
+// =============================================================================
+// styles/index.scss — single entry point; imports all partials in dependency order
+//
+// Naming: partials use the _name.scss convention (Sass standard).
+// Import order: tokens → reset → base → feature modules → theme overrides
+// =============================================================================
+
+// ── Foundations ───────────────────────────────────────────────────────────────
+@use "tokens";       // CSS custom properties (design tokens)
+@use "reset";        // box-model reset + element defaults
+
+// ── Global utilities ──────────────────────────────────────────────────────────
+@use "base";         // app shell, scrollbar, animations, loading states
+
+// ── Map layer ─────────────────────────────────────────────────────────────────
+@use "leaflet";      // Leaflet container + tooltip overrides
+@use "map-controls"; // zoom cluster, icon btns, coordinates bar
+@use "layer-panel";  // layer visibility panel
+
+// ── Sidebar — shell & navigation ─────────────────────────────────────────────
+@use "sidebar";      // glass panel, tab bar, idle state
+
+// ── Sidebar — search flow ─────────────────────────────────────────────────────
+@use "search";       // search bar + legacy dropdown
+@use "results";      // search result cards
+
+// ── Sidebar — saved parcels ───────────────────────────────────────────────────
+@use "favorites";    // favorites panel + remove button
+
+// ── Sidebar — property detail ─────────────────────────────────────────────────
+@use "parcel-thumbnail"; // satellite image + street view button placeholder
+@use "confirm-dialog";   // delete confirmation overlay
+@use "quick-stats";      // stat card grid, badge
+@use "accordion";        // accordion list + field grid
+@use "property-detail";  // detail panel layout, header, footer
+
+// ── Theme overrides (last — highest specificity) ─────────────────────────────
+@use "animations"; // micro-animations + prefers-reduced-motion kill switch
+@use "theme";      // [data-theme="light"] variable overrides
